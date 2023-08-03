@@ -1,9 +1,11 @@
 import React from "react";
 import Card from './Card';
+import { connect } from "react-redux";
 
 
-function CardList({robots}){
-    const cardComponent = robots.map(robot => {
+export function CardList({robotss}){
+
+    const cardComponent = robotss.map(robot => {
         return(
         <Card 
         key={robot.id} 
@@ -18,4 +20,11 @@ function CardList({robots}){
     )
 }
 
-export default CardList; 
+function mapStateToProps(state) {
+    return{
+        robots: state.robots
+    }
+}
+
+export default connect(mapStateToProps)(CardList)
+
