@@ -1,3 +1,3 @@
 # RoboApp
 
-A simple robot search app using <b>React/Redux.<b>
+A simple robot search/add app using <b>React/Redux.<b>
