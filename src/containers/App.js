@@ -14,12 +14,26 @@ function App(props) {
     setRobot(e.target.value);
   }
 
+  function generateEmail(length) {
+    var letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var randomString = '';
+    
+    for (var i = 0; i < length; i++) {
+      var randomIndex = Math.floor(Math.random() * letters.length);
+      randomString += letters.charAt(randomIndex);
+    }
+    
+    return randomString;
+  }
+
+  let randomEmail = generateEmail(robot.length)
+
   function robotSubmit(e) {
     if (robot !== '') {
       const newRobot = {
         id: props.robots.length + 1,
         name: robot,
-        email: `${robot}@${robot}.com`
+        email: `${robot}@${randomEmail}.biz`
       };
       props.addRobot(newRobot);
       setRobot('');
